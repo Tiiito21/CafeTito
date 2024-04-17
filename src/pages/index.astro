@@ -1,22 +1,26 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from '@/layouts/Layout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+
+
+
 ---
 
 <Layout title="Cafetito">
 	
+	<Header />
 	
-	<main class="m-5">
-		<h1 class="border max-w-min py-2 px-1 border-primary rounded-3xl text-secondary hover:bg-secondary/30 text-4xl">Cafetito</h1>
-		<h2 class="text-secondary text-4xl">Ubicacion</h2>		
+	<main class="m-5 h-screen">
+		
 
-		<button class="border rounded-full border-primary border-5" onclick="compartirPagina()"> SHARE BUTTON</button>
+		<button class="border rounded-full border-primary border-5 p-2 bg-background hover:bg-gray-200" onclick='compartirPagina()''> SHARE BUTTON</button>
 
 	</main>
 
 
 
-
+	<Footer />
 
 
 </Layout>

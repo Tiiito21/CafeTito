@@ -4,6 +4,8 @@ interface Props {
 }
 
 const { title } = Astro.props;
+
+
 ---
 
 <!doctype html>
@@ -32,25 +34,28 @@ const { title } = Astro.props;
 
 		<script is:inline>
 			function compartirPagina() {
-				if (navigator.share) {
-					navigator.share({
-						title: document.title,
-						url: window.location.href
-					}).then(() => {
-						console.log('Página compartida exitosamente');
-					}).catch((error) => {
-						console.error('Error al compartir página:', error);
-					});
-				} else {
-					alert('Lo siento, tu navegador no soporta la API Web Share');
-				}
+			if (navigator.share) {
+				navigator.share({
+					title: document.title,
+					url: window.location.href
+				}).then(() => {
+					console.log('Página compartida exitosamente');
+				}).catch((error) => {
+					console.error('Error al compartir página:', error);
+				});
+			} else {
+				alert('Lo siento, tu navegador no soporta la API Web Share');
 			}
+		}
+		
 		</script>
-
+		
 
 	</head>
 	<body>
+
 		<slot />
+
 	</body>
 </html>
 <style is:global>
