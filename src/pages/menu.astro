@@ -8,18 +8,26 @@ import Footer from '@/components/Footer.astro';
 
 
 <Layout title="Menu CafeTito">
-  <h1 class="mt-5 text-4xl md:text-5xl font-serif font-black text-primary text-center">Nuestra Carta</h1>
-  <main class="mx-5 h-screen  flex flex-col items-center ">
+  <h1 class="my-5 text-4xl md:text-5xl font-serif font-black text-primary text-center">Nuestra Carta</h1>
+  <main class="mx-5 rounded-3xl h-screen border-2 border-primary flex flex-col items-center">
 
-    <section class="mt-10 border-2 rounded-xl border-secondary w-48 py-2 flex flex-col items-center coffee-section">
-      <h2 class="text-2xl md:text-3xl font-serif font-black text-secondary">Cafés</h2>
-      <ul class="mt-5 coffee-list hidden transition-all ease-in-out">
+    <section class="mt-5 mx-5 flex flex-col items-center coffee-section">
+      <h2 class="py-2 px-28 text-center text-2xl md:text-3xl font-serif font-black text-secondary border-2 rounded-xl border-secondary coffee-title">Cafés</h2>
+      <ul class=" coffee-list hidden transition-all ease-in-out">
         <li class="text-lg md:text-xl text-center font-serif font-bold text-secondary/80">Café Americano</li>
         <li class="text-lg md:text-xl text-center font-serif font-bold text-secondary/80">Café Espresso</li>
         <li class="text-lg md:text-xl text-center font-serif font-bold text-secondary/80">Café Latte</li>
       </ul>
     </section>
 
+    <section class="mt-2 mx-5 flex flex-col items-center ">
+      <h2 class="py-2 px-28 text-center text-2xl md:text-3xl font-serif font-black text-secondary border-2 rounded-xl border-secondary">Cafés</h2>
+      <ul class="mt-5 hidden transition-all ease-in-out">
+        <li class="text-lg md:text-xl text-center font-serif font-bold text-secondary/80">Café Americano</li>
+        <li class="text-lg md:text-xl text-center font-serif font-bold text-secondary/80">Café Espresso</li>
+        <li class="text-lg md:text-xl text-center font-serif font-bold text-secondary/80">Café Latte</li>
+      </ul>
+    </section>
 
   </main>
 
@@ -32,6 +40,8 @@ import Footer from '@/components/Footer.astro';
 
   const coffeeSection = document.querySelector('.coffee-section');
   const coffeeList = document.querySelector('.coffee-list');
+  const coffeeTitle = document.querySelector('.coffee-title');
+
   let coffeeListVisible = false;
 
 
@@ -39,9 +49,13 @@ import Footer from '@/components/Footer.astro';
   coffeeSection?.addEventListener('click', () => {
     if (!coffeeListVisible) {
       coffeeList.style.display = 'block';
+      coffeeTitle.style.backgroundColor = '#5D3C32';
+      coffeeTitle.style.color = '#EDEDE9';
       coffeeListVisible = true;
     } else {
       coffeeList.style.display = 'none';
+      coffeeTitle.style.backgroundColor = '#EDEDE9';
+      coffeeTitle.style.color = '#5D3C32';
       coffeeListVisible = false;
 
     }
