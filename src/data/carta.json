@@ -1,0 +1,42 @@
+{
+  "Tostas": [
+      { "nombre": "Tosta de aguacate", "precio": 5.99 },
+      { "nombre": "Tosta de salmón y queso crema", "precio": 7.49 },
+      { "nombre": "Tosta de tomate y jamón serrano", "precio": 6.99 },
+      { "nombre": "Tosta de champiñones", "precio": 6.49 }
+  ],
+  "Hamburguesas": [
+      { "nombre": "Hamburguesa clásica", "precio": 8.99 },
+      { "nombre": "Hamburguesa con queso y bacon", "precio": 10.49 },
+      { "nombre": "Hamburguesa vegetariana", "precio": 9.99 }
+  ],
+  "Bocadillos": [
+      { "nombre": "Bocadillo de jamón y queso", "precio": 6.49 },
+      { "nombre": "Bocadillo de tortilla española", "precio": 5.99 },
+      { "nombre": "Bocadillo de salmón ahumado", "precio": 7.99 },
+      { "nombre": "Bocadillo de lomo con queso", "precio": 7.49 }
+  ],
+  "Raciones": [
+      { "nombre": "Patatas bravas", "precio": 4.99 },
+      { "nombre": "Calamares a la romana", "precio": 8.49 },
+      { "nombre": "Croquetas caseras", "precio": 5.99 },
+      { "nombre": "Ensaladilla rusa", "precio": 6.49 }
+  ],
+  "Sandwiches": [
+      { "nombre": "Sandwich de pollo", "precio": 8.99 },
+      { "nombre": "Sandwich de atún", "precio": 7.99 },
+      { "nombre": "Sandwich vegetariano", "precio": 6.99 },
+      { "nombre": "Sandwich de salmón ahumado", "precio": 9.49 }
+  ],
+  "Perritos": [
+      { "nombre": "Perrito caliente clásico", "precio": 5.99 },
+      { "nombre": "Perrito con chili", "precio": 7.49 },
+      { "nombre": "Perrito vegetariano", "precio": 6.49 },
+      { "nombre": "Perrito con cebolla caramelizada", "precio": 6.99 }
+  ],
+  "Postres": [
+      { "nombre": "Tarta de chocolate", "precio": 4.99 },
+      { "nombre": "Helado de vainilla con salsa de caramelo", "precio": 3.99 },
+      { "nombre": "Brownie con helado", "precio": 5.49 }
+  ]
+}
