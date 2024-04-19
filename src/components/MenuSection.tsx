@@ -1,28 +1,38 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import carta from "@/data/carta.json";
+
+
 
 const MenuSection = ({ section, dishes }: any) => {
 
-  const [isOpen, setIsOpen] = useState(false);
 
-  const toggleOpen = () => {
-    setIsOpen(!isOpen);
+  const [isOpen, setIsOpen] = useState<string>('');
+
+  const toggleOpen = (section:String) => {
+    setIsOpen(section);
   };
 
   return (
-    <section className="mt-2 mx-5 flex flex-col items-center cursor-pointer" onClick={toggleOpen}>
-      <h2 className={`py-2 min-w-80 md:min-w-[40rem] text-center text-2xl md:text-6xl font-serif font-black border-2 rounded-xl border-secondary ${isOpen ? 'bg-secondary text-background' : 'bg-background text-secondary' }`} >{section}</h2>
-      
-      {
-        isOpen && <ul className="mt-5 transition-all ease-in-out">
+    Object.entries(carta).map(([section, dishes]) => (
+      <section key={section} className="mt-2 w-3/4 flex flex-col items-center cursor-pointer" onClick={() => toggleOpen(section)}>
+        <h2 className={`py-2 w-full text-center text-2xl md:text-4xl font-serif font-black border-2 rounded-xl transition-colors duration-500 border-secondary ${isOpen==section ? 'bg-secondary text-background' : 'bg-background text-secondary' }`} >{section}</h2>
+        
         {
-          dishes.map((dish: any) => (   
-            <li key={dish.nombre} className="text-lg md:text-3xl text-center font-serif font-bold text-secondary/80">{dish.nombre}</li>
-          ))
+          <ul className={`mt-2 px-5 w-full transition-all duration-100
+            ${isOpen==section ? '' : 'scale-0 h-0'}`}>
+          {
+            dishes.map((dish: any) => (   
+              <li key={dish.nombre} className="text-lg md:text-xl text-center font-serif font-bold text-secondary flex justify-between">
+                <p className="overflow-hidden whitespace-nowrap" >{dish.nombre}</p>
+                <p >{dish.precio}€</p>
+              </li>
+            ))
+          }
+        </ul>
         }
-      </ul>
-      }
-    </section>
+      </section>
+    ))
   );
 };
 

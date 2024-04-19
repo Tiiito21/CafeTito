@@ -3,7 +3,6 @@
 import Layout from "@/layouts/Layout.astro";
 import Footer from '@/components/Footer.astro';
 
-import carta from "@/data/carta.json";
 
 import MenuSection from "@/components/MenuSection";
 ---
@@ -11,14 +10,10 @@ import MenuSection from "@/components/MenuSection";
 
 <Layout title="Menu CafeTito">
   <h1 class="my-5 text-4xl md:text-8xl font-serif font-black text-primary text-center underline underline-offset-8">Nuestra Carta</h1>
-  <main class="py-6 mx-5 sm:mx-20 md:mx-44 rounded-3xl min-h-screen border-2 border-primary flex flex-col items-center">
+  <main class="py-6 w-3/4 md:w-1/2 mx-auto rounded-3xl min-h-screen border-2 border-primary flex flex-col items-center">
 
-
-    {
-      Object.entries(carta).map(([section, dishes]) => (
-        <MenuSection client:load section={section} dishes={dishes} />
-      ))
-    }
+  
+    <MenuSection client:load />
 
 
 
@@ -26,6 +21,6 @@ import MenuSection from "@/components/MenuSection";
 
   <Footer/>
   
-</Layout>
 
+</Layout>
 
