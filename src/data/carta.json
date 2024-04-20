@@ -11,7 +11,7 @@
       { "nombre": "Hamburguesa vegetariana", "precio": 9.99 }
   ],
   "Bocadillos": [
-      { "nombre": "Bocadillo de jamón y queso", "precio": 6.49 },
+      { "nombre": "Charro", "precio": 6.49, "ingredientes": "lomo, bacon, queso, alioli"},
       { "nombre": "Bocadillo de tortilla española", "precio": 5.99 },
       { "nombre": "Bocadillo de salmón ahumado", "precio": 7.99 },
       { "nombre": "Bocadillo de lomo con queso", "precio": 7.49 }
