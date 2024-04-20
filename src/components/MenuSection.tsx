@@ -7,6 +7,8 @@ const MenuSection = () => {
 
   const [isOpen, setIsOpen] = useState<string>('');
 
+  
+
   const toggleOpen = (section:any) => {
     if(isOpen==section) setIsOpen('');
     else setIsOpen(section);
@@ -14,16 +16,21 @@ const MenuSection = () => {
   };
 
   return (
+
     Object.entries(carta).map(([section, dishes]) => (
-      <section key={section} className="backdrop-blur-xl mt-2 w-[90%] md:w-3/4 flex flex-col items-center cursor-pointer" onClick={() => toggleOpen(section)}>
-        <h2 className={`py-2 w-full text-center text-2xl md:text-4xl font-serif font-black border-2 rounded-xl transition-colors duration-5000 border-secondary ${isOpen==section ? 'bg-secondary text-background' : 'bg-background text-secondary' }`} >{section}</h2>
+      <section key={section} className=" mt-2 w-[90%] mx-auto flex flex-col items-center cursor-pointer" onClick={() => toggleOpen(section)}>
+        <h2 className={`py-2 w-full text-center text-2xl md:text-4xl font-serif font-black border-2 rounded-xl transition-colors duration-5000 border-secondary
+          ${isOpen==section ? 'bg-secondary md:bg-background text-background md:text-secondary' : 'bg-background text-secondary' }`}
+        >
+          {section}
+        </h2>
         
         {
           <ul className={`mt-2 px-5 w-full
-            ${isOpen==section ? 'h-auto' : 'h-0 overflow-hidden'}`}>
+            ${isOpen==section ? 'h-auto' : 'h-0 md:h-full overflow-hidden'}`}>
           {
             dishes.map((dish: any) => (   
-              <li key={dish.nombre} className="text-md md:text-xl font-serif font-bold text-secondary">
+              <li key={dish.nombre} className="text-md lg:text-lg font-serif font-bold text-secondary">
                 <div className="flex justify-between">
                   <p className="overflow-hidden whitespace-nowrap" >{dish.nombre}</p>
                   <p >{dish.precio}€</p>
