@@ -63,17 +63,11 @@ const MenuSection = () => {
           {  
             dishes.map((dish: any) => (   
               <li key={dish.nombre} className="text-md lg:text-lg font-serif font-bold text-secondary mb-2">
-<<<<<<< Updated upstream
                 <div className="flex justify-center">
                   <div className="flex flex-col max-w-[33%] min-w-[33%]">
                     <p className="text-sm md:text-md  mb-1" >{dish.nombre}</p>
                     {dish.descripcion && <p className="pl-2 text-nowrap text-xs md:text-sm text-secondary">{dish.descripcion}</p>}
-=======
-                <div className="grid grid-cols-2 justify-center">
-                  <div className="flex flex-col w-full">
-                    <p className="text-sm md:text-md whitespace-nowrap mb-1" >{dish.nombre}</p>
-                    {dish.descripcion && <p className="pl-5 text-xs md:text-sm text-nowrap text-secondary">{dish.descripcion}</p>}
->>>>>>> Stashed changes
+
                   </div>
 
                   {dish.Precio && !dish.Precio2 && !dish.Precio3 && <div className="flex justify-end items-center gap-2 w-full text-sm">
