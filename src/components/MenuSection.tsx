@@ -43,7 +43,7 @@ const MenuSection = () => {
               section === 'Hamburguesas' &&
               <li className="flex justify-center">
                 <div className="min-w-[40%] max-w-[40%]"></div>
-                <div className="grid grid-flow-col grid-cols-3 w-full text-center text-secondary font-bold text-md ml-2">
+                <div className="grid grid-flow-col grid-cols-3 w-full text-center text-secondary font-bold text-[0.88rem] ml-2">
                   <p>Pollo</p>
                   <p className="overflow-hidden">Ternera</p>
                   <p>Buey</p>
@@ -54,7 +54,7 @@ const MenuSection = () => {
               section === 'Montaditos' &&
               <li className="flex justify-center">
                 <div className="min-w-[40%] max-w-[40%]"></div>
-                <div className="grid grid-flow-col grid-cols-2 w-full text-center text-secondary font-bold text-md ml-2">
+                <div className="grid grid-flow-col grid-cols-2 w-full text-center text-secondary font-bold text-base ml-2">
                   <p>Montado</p>
                   <p>Bocadillo</p>
                 </div>
@@ -62,10 +62,10 @@ const MenuSection = () => {
             }
           {  
             dishes.map((dish: any) => (   
-              <li key={dish.nombre} className="text-md lg:text-lg font-serif font-bold text-secondary mb-2">
+              <li key={dish.nombre} className="text-base lg:text-lg font-serif font-bold text-secondary mb-2">
                 <div className="flex">
                   <div className="flex flex-col min-w-[40%] max-w-[40%]">
-                    <p className="text-sm md:text-md mb-1" >{dish.nombre}</p>
+                    <p className="text-sm md:text-base mb-1" >{dish.nombre}</p>
                     {dish.descripcion && <p className="pl-3 text-xs md:text-sm text-secondary">{dish.descripcion}</p>}
                   </div>
 
