@@ -37,24 +37,24 @@ const MenuSection = () => {
         </h2>
         
         {
-          <ul className={`mt-2 px-5 w-full
+          <ul className={`mt-2 px-2 w-full
             ${isOpen==section ? 'h-auto' : 'h-0 md:h-full overflow-hidden'}`}>
             {
               section === 'Hamburguesas' &&
-              <li className="grid grid-cols-2 justify-center">
-                <div className="w-full"></div>
-                <div className="grid grid-flow-col grid-cols-3 w-full text-center text-secondary font-bold text-md ml-4">
+              <li className="flex justify-center">
+                <div className="min-w-[40%] max-w-[40%]"></div>
+                <div className="grid grid-flow-col grid-cols-3 w-full text-center text-secondary font-bold text-md ml-2">
                   <p>Pollo</p>
-                  <p>Ternera</p>
+                  <p className="overflow-hidden">Ternera</p>
                   <p>Buey</p>
                 </div>
               </li>
             }
             {
               section === 'Montaditos' &&
-              <li className="grid grid-cols-2 justify-center">
-                <div className="w-full"></div>
-                <div className="grid grid-flow-col grid-cols-2 w-full text-center text-secondary font-bold text-md ml-4">
+              <li className="flex justify-center">
+                <div className="min-w-[40%] max-w-[40%]"></div>
+                <div className="grid grid-flow-col grid-cols-2 w-full text-center text-secondary font-bold text-md ml-2">
                   <p>Montado</p>
                   <p>Bocadillo</p>
                 </div>
@@ -63,24 +63,24 @@ const MenuSection = () => {
           {  
             dishes.map((dish: any) => (   
               <li key={dish.nombre} className="text-md lg:text-lg font-serif font-bold text-secondary mb-2">
-                <div className="grid grid-cols-2 justify-center">
-                  <div className="flex flex-col w-full">
-                    <p className="text-sm md:text-md whitespace-nowrap mb-1" >{dish.nombre}</p>
-                    {dish.descripcion && <p className="pl-5 text-xs md:text-sm text-secondary">{dish.descripcion}</p>}
+                <div className="flex">
+                  <div className="flex flex-col min-w-[40%] max-w-[40%]">
+                    <p className="text-sm md:text-md mb-1" >{dish.nombre}</p>
+                    {dish.descripcion && <p className="pl-3 text-xs md:text-sm text-secondary">{dish.descripcion}</p>}
                   </div>
 
-                  {dish.Precio && !dish.Precio2 && !dish.Precio3 && <div className="flex justify-end gap-2 w-2/3 text-sm mr-2">
+                  {dish.Precio && !dish.Precio2 && !dish.Precio3 && <div className="flex justify-end gap-2 w-full text-sm mr-2">
                     <p>{dish.Precio}€</p>
                   </div>
                   }
 
-                  {dish.PrecioBocadillo && <div className="grid grid-flow-col grid-cols-2 w-full text-center text-secondary font-bold text-sm ml-4">
+                  {dish.PrecioBocadillo && <div className="grid grid-flow-col grid-cols-2 w-full text-center text-secondary font-bold text-sm ml-2">
                     <p>{dish.PrecioMontadito ? `${dish.PrecioMontadito}€` : '---------'}</p>
                     <p>{dish.PrecioBocadillo}€</p>
                   </div>
                   }
   
-                {dish.Precio2 && dish.Precio3 && <div className="grid grid-flow-col grid-cols-3 w-full text-center text-secondary font-bold text-sm ml-4">
+                {dish.Precio2 && dish.Precio3 && <div className="grid grid-flow-col grid-cols-3 w-full text-center text-secondary font-bold text-sm ml-2">
                     <p>{dish.Precio}€</p>
                     <p>{dish.Precio2}€</p>
                     <p>{dish.Precio3}€</p>
