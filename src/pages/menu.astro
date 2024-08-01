@@ -5,20 +5,49 @@ import Footer from '@/components/Footer.astro';
 import Header from "@/components/Header.astro";
 
 
-
 import MenuSection from "@/components/MenuSection";
 ---
 
 
-<Layout title="Menu CafeTito">
+<Layout title="Menu del bar CafeTito">
   
   <Header/>
   
   <h1 class="my-5 text-4xl md:text-8xl font-serif font-black text-primary text-center underline underline-offset-8">Nuestra Carta</h1>
+  
+  
   <main class="py-6 w-[90%] mx-auto rounded-3xl min-h-screen border-2 border-primary flex flex-col items-center md:grid md:items-start md:grid-cols-2">
   
     <MenuSection client:load />
+  
   </main>
+
+  <div class="flex justify-center">
+    <button
+      class="border rounded-full border-primary border-5 p-2 my-2 bg-secondary/5 hover:bg-secondary/20 text-primary font-bold"
+      onclick=`(() => {
+        console.log('Compartir página');
+  
+        if (navigator.share) {
+          navigator.share({
+            title: document.title,
+            url: window.location.href
+          }).then(() => {
+            console.log('Página compartida exitosamente');
+          }).catch((error) => {
+            console.error('Error al compartir página:', error);
+          });
+        } else {
+          alert('Lo siento, tu navegador no soporta la API Web Share');
+        }
+      })()`
+    >
+      Comparte el Menú
+    </button>
+  </div>
+  
+
+
 
   <Footer/>
 </Layout>
