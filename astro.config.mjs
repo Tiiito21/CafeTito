@@ -7,7 +7,7 @@ import node from "@astrojs/node";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'http://elcafetito.es',
+  site: 'https://elcafetito.es',
   integrations: [tailwind(), react(),sitemap()],
   output: "server",
   adapter: node({
