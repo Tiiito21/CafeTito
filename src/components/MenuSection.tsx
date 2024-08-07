@@ -30,7 +30,7 @@ const MenuSection = () => {
     !carta ? <div><h1>Cargando Menu</h1></div> :
     Object.entries(carta).map(([section, dishes]) => (
       <section key={section} className=" mt-2 w-[90%] mx-auto flex flex-col items-center cursor-pointer" onClick={() => toggleOpen(section)}>
-        <h2 className={`py-2 w-full text-center text-2xl md:text-4xl font-serif font-black border-2 rounded-xl transition-colors duration-5000 border-secondary
+        <h2 className={`py-2 w-full text-center text-2xl md:text-4xl font-rethink font-extrabold border-2 rounded-xl transition-colors duration-5000 border-secondary
           ${isOpen==section ? 'bg-secondary md:bg-background text-background md:text-secondary' : 'bg-background text-secondary' }`}
         >
           {section}
@@ -43,7 +43,7 @@ const MenuSection = () => {
               section === 'Hamburguesas' &&
               <li className="flex justify-center">
                 <div className="min-w-[40%] max-w-[40%]"></div>
-                <div className="grid grid-flow-col grid-cols-3 w-full text-center text-secondary font-bold text-[0.88rem] ml-2">
+                <div className="grid grid-flow-col grid-cols-3 w-full text-center text-secondary font-extrabold text-[1.2rem] ml-2">
                   <p>Pollo</p>
                   <p className="overflow-hidden">Ternera</p>
                   <p>Buey</p>
@@ -54,7 +54,7 @@ const MenuSection = () => {
               section === 'Montaditos' &&
               <li className="flex justify-center">
                 <div className="min-w-[40%] max-w-[40%]"></div>
-                <div className="grid grid-flow-col grid-cols-2 w-full text-center text-secondary font-bold text-base ml-2">
+                <div className="grid grid-flow-col grid-cols-2 w-full text-center text-secondary font-extrabold text-[1.1rem] ml-2">
                   <p>Montado</p>
                   <p>Bocadillo</p>
                 </div>
@@ -62,28 +62,31 @@ const MenuSection = () => {
             }
           {  
             dishes.map((dish: any) => (   
-              <li key={dish.nombre} className="text-base lg:text-lg font-serif font-bold text-secondary mb-2">
+              <li key={dish.nombre} className="text-base lg:text-lg font-rethink font-extrabold text-secondary mb-2">
                 <div className="flex">
                   <div className="flex flex-col min-w-[40%] max-w-[40%]">
-                    <p className="text-sm md:text-base mb-1" >{dish.nombre}</p>
-                    {dish.descripcion && <p className="pl-3 text-xs md:text-sm text-secondary">{dish.descripcion}</p>}
+                    <p className="text-[1.1rem] md:text-lg mb-1" >{dish.nombre}</p>
+                    {dish.descripcion && <p className="pl-3 text-sm md:text-base font-semibold text-secondary">{dish.descripcion}</p>}
                   </div>
 
-                  {dish.Precio && !dish.Precio2 && !dish.Precio3 && <div className="flex justify-end gap-2 w-full text-sm mr-2">
+                  {dish.Precio && !dish.Precio2 && !dish.Precio3 &&
+                  <div className="flex justify-end gap-2 w-full text-base mr-2">
                     <p>{dish.Precio}€</p>
                   </div>
                   }
 
-                  {dish.PrecioBocadillo && <div className="grid grid-flow-col grid-cols-2 w-full text-center text-secondary font-bold text-sm ml-2">
+                  {dish.PrecioBocadillo &&
+                  <div className="grid grid-flow-col grid-cols-2 w-full text-center text-secondary font-bold text-base ml-2">
                     <p>{dish.PrecioMontadito ? `${dish.PrecioMontadito}€` : '---------'}</p>
                     <p>{dish.PrecioBocadillo}€</p>
                   </div>
                   }
   
-                {dish.Precio2 && dish.Precio3 && <div className="grid grid-flow-col grid-cols-3 w-full text-center text-secondary font-bold text-sm ml-2">
-                    <p>{dish.Precio}€</p>
-                    <p>{dish.Precio2}€</p>
-                    <p>{dish.Precio3}€</p>
+                  {dish.Precio2 && dish.Precio3 &&
+                  <div className="grid grid-flow-col grid-cols-3 w-full text-center text-secondary font-bold text-base ml-2">
+                      <p>{dish.Precio}€</p>
+                      <p>{dish.Precio2}€</p>
+                      <p>{dish.Precio3}€</p>
                   </div>}
 
 
