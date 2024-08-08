@@ -23,9 +23,19 @@ const MenuSection = ({cartaData}:{cartaData:Object}) => {
   // }, []);
 
   const toggleOpen = (section:any) => {
-    if(isOpen==section) setIsOpen('');
-    else setIsOpen(section);
-    
+    if (isOpen === section) {
+      setIsOpen('');
+    } else {
+      setIsOpen(section);
+  
+      // Usamos requestAnimationFrame para asegurarnos de que el DOM esté actualizado
+      requestAnimationFrame(() => {
+        const sectionElement = document.getElementById(section);
+        if (sectionElement) {
+          sectionElement.scrollIntoView();
+        }
+      });
+    }
   };
 
   
@@ -33,18 +43,16 @@ const MenuSection = ({cartaData}:{cartaData:Object}) => {
 
     !cartaData ? <div className="mx-3"><h1 className="text-2xl font-semibold">Cargando Menu</h1></div> :
     Object.entries(cartaData).map(([section, dishes]) => (
-      <section key={section} className=" mt-2 w-[90%] mx-auto flex flex-col items-center cursor-pointer md:cursor-default" onClick={() => toggleOpen(section)}>
-        <h2 id={section} className={`py-2 w-full text-center text-2xl md:text-4xl font-rethink font-extrabold border-2 rounded-xl transition-colors duration-5000 border-secondary
+      <section key={section} id={section} className=" pt-2 w-[90%] mx-auto flex flex-col items-center cursor-pointer md:cursor-default" onClick={() => toggleOpen(section)}>
+        <h2  className={`py-2 w-full text-center text-2xl md:text-4xl font-rethink font-extrabold border-2 rounded-xl transition-colors duration-5000 border-secondary
           ${isOpen==section ? 'bg-secondary md:bg-background text-background md:text-secondary' : 'bg-background text-secondary' }`}
         >
-          <a href={`#${section}`}>
           {section}
-          </a>
         </h2>
         
         {
           <ul className={`mt-2 px-2 w-full
-            ${isOpen==section ? 'h-auto' : 'h-0 md:h-full overflow-hidden'}`}>
+            ${isOpen==section ? '' : 'hidden'}`}>
             {
               section === 'Hamburguesas' &&
               <li className="flex justify-center">
