@@ -43,8 +43,9 @@ const MenuSection = ({cartaData}:{cartaData:Object}) => {
 
     !cartaData ? <div className="mx-3"><h1 className="text-2xl font-semibold">Cargando Menu</h1></div> :
     Object.entries(cartaData).map(([section, dishes]) => (
-      <section key={section} id={section} className=" pt-2 w-[90%] mx-auto flex flex-col items-center cursor-pointer md:cursor-default" onClick={() => toggleOpen(section)}>
-        <h2  className={`py-2 w-full text-center text-2xl md:text-4xl font-rethink font-extrabold border-2 rounded-xl transition-colors duration-5000 border-secondary
+      <section key={section} className=" pt-2 w-[90%] mx-auto flex flex-col items-center">
+        <h2 id={section} onClick={() => toggleOpen(section)}
+          className={`py-2 w-full cursor-pointer md:cursor-default text-center text-2xl md:text-4xl font-rethink font-extrabold border-2 rounded-xl transition-colors duration-5000 border-secondary
           ${isOpen==section ? 'bg-secondary md:bg-background text-background md:text-secondary' : 'bg-background text-secondary' }`}
         >
           {section}
@@ -52,7 +53,7 @@ const MenuSection = ({cartaData}:{cartaData:Object}) => {
         
         {
           <ul className={`mt-2 px-2 w-full
-            ${isOpen==section ? '' : 'hidden'}`}>
+            ${isOpen==section ? '' : 'hidden md:block'}`}>
             {
               section === 'Hamburguesas' &&
               <li className="flex justify-center">
