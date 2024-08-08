@@ -1,22 +1,26 @@
 
 import { useState, useEffect } from "react";
 
-const MenuSection = () => {
+const MenuSection = ({cartaData}:{cartaData:Object}) => {
 
 
   const [isOpen, setIsOpen] = useState<string>('');
-  const [carta, setCarta] = useState<Object|null>(null);
+  
+  
+  //Desabilitada porque se carga en el componente padre
+
+  //const [carta, setCarta] = useState<Object|null>(null);
 
 
-  useEffect(() => {
-    fetch('https://api.elcafetito.es/getMenu')
-    .then(response => response.json())
-    .then(data => {
-      // Aquí puedes trabajar con los datos recibidos
-      setCarta(data);
-    })
-    .catch(error => console.error('Error:', error));
-  }, []);
+  // useEffect(() => {
+  //   fetch('https://api.elcafetito.es/getMenu')
+  //   .then(response => response.json())
+  //   .then(data => {
+  //     // Aquí puedes trabajar con los datos recibidos
+  //     setCarta(data);
+  //   })
+  //   .catch(error => console.error('Error:', error));
+  // }, []);
 
   const toggleOpen = (section:any) => {
     if(isOpen==section) setIsOpen('');
@@ -27,9 +31,9 @@ const MenuSection = () => {
   
   return (
 
-    !carta ? <div><h1>Cargando Menu</h1></div> :
-    Object.entries(carta).map(([section, dishes]) => (
-      <section key={section} className=" mt-2 w-[90%] mx-auto flex flex-col items-center cursor-pointer" onClick={() => toggleOpen(section)}>
+    !cartaData ? <div className="mx-3"><h1 className="text-2xl font-semibold">Cargando Menu</h1></div> :
+    Object.entries(cartaData).map(([section, dishes]) => (
+      <section key={section} className=" mt-2 w-[90%] mx-auto flex flex-col items-center cursor-pointer md:cursor-default" onClick={() => toggleOpen(section)}>
         <h2 className={`py-2 w-full text-center text-2xl md:text-4xl font-rethink font-extrabold border-2 rounded-xl transition-colors duration-5000 border-secondary
           ${isOpen==section ? 'bg-secondary md:bg-background text-background md:text-secondary' : 'bg-background text-secondary' }`}
         >
